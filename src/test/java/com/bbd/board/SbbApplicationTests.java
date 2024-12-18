@@ -17,6 +17,21 @@ class SbbApplicationTests {
     @Autowired
     private QuestionRepository questionRepository;
 
+
+
+
+
+
+
+
+    @Test
+    @DisplayName("질문과 답변 데이터를 통해 ID 데이터를 조회할 수 있어야 한다.")
+    void testJpa5() {
+        Question q = this.questionRepository.findBySubjectAndContent(
+                "sbb가 무엇인가요?", "sbb에 대해서 알고 싶습니다.");
+        assertEquals(13, q.getId());
+    }
+
     @Test
     @DisplayName("질문 데이터로 ID 데이터를 조회할 수 있어야 한다.")
     void testJpa4() {
